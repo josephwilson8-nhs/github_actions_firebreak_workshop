@@ -17,11 +17,9 @@ jobs:
           echo $GITHUB_REF_NAME
           pr_list=$(gh pr list --head $GITHUB_REF_NAME --json number --jq '.[] | .number')
           if [ -n "$pr_list" ]; then
-            echo $pr_list
-            # echo "Pull request for branch $GITHUB_REF_NAME already exists"
+            echo "Pull request for branch $GITHUB_REF_NAME already exists"
           else
-            echo "Don't want to be here"
-            # gh pr create --fill --draft --base live
+            gh pr create --fill --draft --base live
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
