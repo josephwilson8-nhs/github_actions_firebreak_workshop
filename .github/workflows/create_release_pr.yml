@@ -16,9 +16,12 @@ jobs:
         run: |
           pr_list=$(gh pr list --base "$BASE_REF" --json number --jq '.[] | .number')
           if [ -n "$pr_list" ]; then
-            gh pr create --fill --draft --base live
+            echo "Want to be here"
+            # gh pr create --fill --draft --base live
+            
           else
-            echo "Pull request for branch $BASE_REF already exists"
+            # echo "Pull request for branch $BASE_REF already exists"
+            echo "Don't want to be here"
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
