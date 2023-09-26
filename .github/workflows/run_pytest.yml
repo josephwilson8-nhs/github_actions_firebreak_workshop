@@ -2,9 +2,7 @@ name: Python Testing
 
 on:
   pull_request:
-    branches: 
-      - develop
-      - live
+  workflow_dispatch:
 
 jobs:
   test:
