@@ -1,9 +1,13 @@
 name: Python Testing
 
 on:
-  pull_request:
   workflow_dispatch:
-  push:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize 
+      - ready_for_review
 
 jobs:
   test:
